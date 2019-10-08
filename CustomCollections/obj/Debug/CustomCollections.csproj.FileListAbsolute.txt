@@ -1,0 +1,10 @@
+C:\Users\KM\source\repos\Lab2\CustomCollections\bin\Debug\CustomCollections.dll
+C:\Users\KM\source\repos\Lab2\CustomCollections\bin\Debug\CustomCollections.pdb
+C:\Users\KM\source\repos\Lab2\CustomCollections\bin\Debug\CustomDatastructures.Core.dll
+C:\Users\KM\source\repos\Lab2\CustomCollections\bin\Debug\CustomDatastructures.Tests.dll
+C:\Users\KM\source\repos\Lab2\CustomCollections\bin\Debug\nunit.framework.dll
+C:\Users\KM\source\repos\Lab2\CustomCollections\obj\Debug\CustomCollections.csprojAssemblyReference.cache
+C:\Users\KM\source\repos\Lab2\CustomCollections\obj\Debug\CustomCollections.csproj.CoreCompileInputs.cache
+C:\Users\KM\source\repos\Lab2\CustomCollections\obj\Debug\CustomCollections.csproj.CopyComplete
+C:\Users\KM\source\repos\Lab2\CustomCollections\obj\Debug\CustomCollections.dll
+C:\Users\KM\source\repos\Lab2\CustomCollections\obj\Debug\CustomCollections.pdb
