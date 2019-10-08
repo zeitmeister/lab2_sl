@@ -29,10 +29,11 @@ namespace CustomCollections
             if (!rejArg.IsOperationRejected)
             {
                 internalList.Add(item);
+                var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);
+                OnChanged(arg);
             }
             
-            var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);          
-            OnChanged(arg);
+            
             
             
         }
