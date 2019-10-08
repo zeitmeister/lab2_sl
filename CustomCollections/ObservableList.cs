@@ -13,7 +13,7 @@ namespace CustomCollections
         // Declare an private variable, internalList, to work as 
         // the internal data storage for the list
         private List<T> internalList = new List<T>();
-
+        
         public event EventHandler<ListChangedEventArgs<T>> Changed;
 
         public event EventHandler<RejectableEventArgs<T>> BeforeChange;
@@ -21,7 +21,7 @@ namespace CustomCollections
         //public delegate void EventHandler(object sender, ListChangedEventArgs<T> eventArgs);
         public void Add(T item)
         {
-            var beforeChangeArg = new RejectableEventArgs<T>(Operation.Add, item, internalList.Count);
+
             internalList.Add(item);
             var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);          
             OnChanged(arg);
