@@ -24,15 +24,21 @@ namespace CustomCollections
         //public delegate void EventHandler(object sender, ListChangedEventArgs<T> eventArgs);
         public void Add(T item)
         {
-            var rejArg = new RejectableCustomEventArgs<T>(Operation.Add, item, internalList.Count);
-            OnBeforeChange(rejArg);
-            if (!rejArg.IsOperationRejected)
+            try
             {
-                internalList.Add(item);
-                var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);
-                OnChanged(arg);
+                var rejArg = new RejectableCustomEventArgs<T>(Operation.Add, item, internalList.Count);
+                OnBeforeChange(rejArg);
+                if (!rejArg.IsOperationRejected)
+                {
+                    internalList.Add(item);
+                    var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);
+                    OnChanged(arg);
+                }
+            } 
+            catch(OperationRejectedException e)
+            {
+                Console.WriteLine(e.Message);
             }
-            
             
             
             
@@ -40,15 +46,21 @@ namespace CustomCollections
 
         public void Remove(T item)
         {
-            var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
-            OnBeforeChange(rejArg);
-            if(!rejArg.IsOperationRejected)
+            try
             {
-                internalList.Remove(item);
-                var arg = new ListChangedEventArgs<T>(Operation.Remove, item, internalList.Count);
-                OnChanged(arg);
+                var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
+                OnBeforeChange(rejArg);
+                if (!rejArg.IsOperationRejected)
+                {
+                    internalList.Remove(item);
+                    var arg = new ListChangedEventArgs<T>(Operation.Remove, item, internalList.Count);
+                    OnChanged(arg);
+                }
             }
-            
+            catch(OperationRejectedException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public bool Contains(T item)

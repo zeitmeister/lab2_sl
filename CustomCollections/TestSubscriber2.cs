@@ -19,6 +19,7 @@ namespace CustomCollections
             {
                 e.RejectOperation();
                 Rejected = true;
+                throw new OperationRejectedException();
             } // För test
         }
     }
