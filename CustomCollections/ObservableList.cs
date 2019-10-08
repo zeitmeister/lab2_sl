@@ -117,12 +117,30 @@ namespace CustomCollections
 
         public bool TryRemove(T item)
         {
-            throw new NotImplementedException();
+            var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
+            OnBeforeChange(rejArg);
+            if (!rejArg.IsOperationRejected)
+            {
+                internalList.Remove(item);
+                var arg = new ListChangedEventArgs<T>(Operation.Remove, item, internalList.Count);
+                OnChanged(arg);
+                return true;
+            }
+            else return false;
         }
 
         public bool TryAdd(T item)
         {
-            throw new NotImplementedException();
+            var rejArg = new RejectableCustomEventArgs<T>(Operation.Add, item, internalList.Count);
+            OnBeforeChange(rejArg);
+            if (!rejArg.IsOperationRejected)
+            {
+                internalList.Add(item);
+                var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);
+                OnChanged(arg);
+                return true;
+            }
+            else return false;
         }
     }
 }
