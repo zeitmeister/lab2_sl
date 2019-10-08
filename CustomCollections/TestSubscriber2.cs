@@ -1,4 +1,5 @@
-﻿using CustomDatastructures.Core;
+﻿using CustomCollections.CustomCollections;
+using CustomDatastructures.Core;
 
 namespace CustomCollections
 {
@@ -19,7 +20,7 @@ namespace CustomCollections
             {
                 e.RejectOperation();
                 Rejected = true;
-                throw new OperationRejectedException();
+                //throw new OperationRejectedException();
             } // För test
         }
     }

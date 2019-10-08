@@ -65,6 +65,7 @@
             this.Controls.Add(this.button1);
             this.Name = "TestApp";
             this.Text = "Test App";
+            this.Load += new System.EventHandler(this.TestApp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

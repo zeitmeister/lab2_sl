@@ -91,14 +91,28 @@ namespace CustomCollections.Tests
         public void Add_Throws_Correct_Exception()
         {
             var testObj = new Object();
+            Instance.BeforeChange += (sender, args) => args.RejectOperation();
 
-            Instance.BeforeChange +=
-                (sender, args) => args.RejectOperation();
+            try
+            {
+                Instance.Add(testObj);
+            }
+            catch (InvalidOperationException e)
+            {
+                if (e.GetType().BaseType == typeof(InvalidOperationException))
+                {
+                    return;
 
-            var ex = Assert.ThrowsException<InvalidOperationException>(() => Instance.Add(testObj));
-
-            Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
+                }
+                else
+                {
+                    Assert.Fail("When an operation is rejected, the type of the exception should be a subtype of InvalidOperationException.");
+                    return;
+                }
+            }
+            Assert.Fail("When an operation is rejected, the Remove method should throw an exception.");
         }
+
 
         [TestMethod]
         public void Remove_Reject_Throws_Correct_Exception()

@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CustomCollections
+﻿namespace CustomCollections
 {
-    class OperationRejectedException : InvalidOperationException
+    using System;
+
+    namespace CustomCollections
     {
-        public OperationRejectedException()
+        class OperationRejectedException : InvalidOperationException
         {
+            public OperationRejectedException()
+            {
 
-        }
-        public OperationRejectedException(string Message) :base(Message)
-        {
+            }
+            public OperationRejectedException(string Message) : base(Message)
+            {
 
-        }
-        public OperationRejectedException(string Message, Exception exception) :base(Message, exception)
-        {
+            }
+            public OperationRejectedException(string Message, Exception exception) : base(Message, exception)
+            {
 
+            }
         }
     }
 }

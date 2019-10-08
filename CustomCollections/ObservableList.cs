@@ -7,6 +7,16 @@ using CustomDatastructures.Core;
 
 namespace CustomCollections
 {
+    using global::CustomCollections.CustomCollections;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    namespace CustomCollections
+    {
+    }
     // Make this class generic by adding a type-parameter to the class
     public class ObservableList<T> : IEnumerable<T>, IObservableList<T>
     {
@@ -24,8 +34,7 @@ namespace CustomCollections
         //public delegate void EventHandler(object sender, ListChangedEventArgs<T> eventArgs);
         public void Add(T item)
         {
-            try
-            {
+            
                 var rejArg = new RejectableCustomEventArgs<T>(Operation.Add, item, internalList.Count);
                 OnBeforeChange(rejArg);
                 if (!rejArg.IsOperationRejected)
@@ -34,21 +43,22 @@ namespace CustomCollections
                     var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);
                     OnChanged(arg);
                 }
-            } 
-            catch(OperationRejectedException e)
+            else
             {
-                Console.WriteLine(e.Message);
+                throw new OperationRejectedException();
             }
-            
-            
-            
+
+
+
         }
 
         public void Remove(T item)
         {
-            try
+            if (!internalList.Contains(item))
             {
-                var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
+                throw new InvalidOperationException();
+            }
+            var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
                 OnBeforeChange(rejArg);
                 if (!rejArg.IsOperationRejected)
                 {
@@ -56,11 +66,12 @@ namespace CustomCollections
                     var arg = new ListChangedEventArgs<T>(Operation.Remove, item, internalList.Count);
                     OnChanged(arg);
                 }
-            }
-            catch(OperationRejectedException e)
+            else
             {
-                Console.WriteLine(e.Message);
+                throw new OperationRejectedException();
             }
+            
+           
         }
 
         public bool Contains(T item)

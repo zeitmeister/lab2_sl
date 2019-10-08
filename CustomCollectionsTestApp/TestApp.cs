@@ -28,7 +28,10 @@ namespace CustomCollectionsTestApp
             TestSubscriber testSubscriber = new TestSubscriber("sub2", list);
             TestSubscriber2 testSubscriber2 = new TestSubscriber2("sub3", list);
             
-            list.Add(textBox1.Text);
+            
+                list.Add(textBox1.Text);
+            
+            
 
             if (!testSubscriber2.Rejected)
             listBox1.Items.Add(textBox1.Text);
@@ -53,6 +56,11 @@ namespace CustomCollectionsTestApp
         }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TestApp_Load(object sender, EventArgs e)
         {
 
         }

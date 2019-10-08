@@ -82,6 +82,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomCollectionsTests\CustomCollectionsTests.csproj">
+      <Project>{3c20b05d-5500-44b6-9799-9b1bda9a11fc}</Project>
+      <Name>CustomCollectionsTests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomCollections\CustomCollections.csproj">
       <Project>{072f4a79-dd6b-47fa-acb3-09a5232add48}</Project>
       <Name>CustomCollections</Name>
