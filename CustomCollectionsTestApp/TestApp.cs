@@ -26,9 +26,11 @@ namespace CustomCollectionsTestApp
         {
             Subscriber subscriber = new Subscriber("sub1", list);
             TestSubscriber testSubscriber = new TestSubscriber("sub2", list);
+            TestSubscriber2 testSubscriber2 = new TestSubscriber2("sub3", list);
             
             list.Add(textBox1.Text);
 
+            if (!testSubscriber2.Rejected)
             listBox1.Items.Add(textBox1.Text);
 
             if(subscriber.Operation == "Add")

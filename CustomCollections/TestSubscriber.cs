@@ -22,8 +22,7 @@ namespace CustomCollections
         private void HandleBeforeChanged(object sender, RejectableEventArgs<string> e)
         {
             bool test = e.IsOperationRejected;
-            e.RejectOperation();
-            bool test2 = e.IsOperationRejected;
+            //e.RejectOperation();
             Count = e.Count;
         }
     }

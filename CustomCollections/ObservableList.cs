@@ -26,7 +26,11 @@ namespace CustomCollections
         {
             var rejArg = new RejectableCustomEventArgs<T>(Operation.Add, item, internalList.Count);
             OnBeforeChange(rejArg);
-            internalList.Add(item);
+            if (!rejArg.IsOperationRejected)
+            {
+                internalList.Add(item);
+            }
+            
             var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);          
             OnChanged(arg);
             
@@ -90,28 +94,5 @@ namespace CustomCollections
         {
             throw new NotImplementedException();
         }
-    }
-
-    public class Subscriber
-    {
-        private string id;
-        public string Operation { get; set; }
-        public string Value { get; set; }
-
-        public int Count { get; set; }
-        public Subscriber(string ID, ObservableList<string> pub)
-        {
-            id = ID;
-            pub.Changed += HandleChanged;
-        }
-
-        public void HandleChanged(object sender, ListChangedEventArgs<string> eventArgs)
-        {
-            Operation = eventArgs.Operation.ToString();
-            Value = eventArgs.Value;
-            Count = eventArgs.Count;
-        }
-
-        
     }
 }

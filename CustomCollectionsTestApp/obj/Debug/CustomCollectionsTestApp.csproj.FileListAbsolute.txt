@@ -12,3 +12,17 @@ C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\obj\Debug\CustomCollectio
 C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.csproj.CopyComplete
 C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.exe
 C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.pdb
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\bin\Debug\CustomCollectionsTestApp.exe.config
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\bin\Debug\CustomCollectionsTestApp.exe
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\bin\Debug\CustomCollectionsTestApp.pdb
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\bin\Debug\CustomCollections.dll
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\bin\Debug\CustomDatastructures.Core.dll
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\bin\Debug\CustomCollections.pdb
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.csprojAssemblyReference.cache
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.Properties.Resources.resources
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.TestApp.resources
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.csproj.GenerateResource.cache
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.csproj.CoreCompileInputs.cache
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.csproj.CopyComplete
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.exe
+x:\Desktop\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.pdb

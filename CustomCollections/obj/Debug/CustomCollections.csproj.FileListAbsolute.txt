@@ -8,3 +8,13 @@ C:\Users\KM\source\repos\Lab2\CustomCollections\obj\Debug\CustomCollections.cspr
 C:\Users\KM\source\repos\Lab2\CustomCollections\obj\Debug\CustomCollections.csproj.CopyComplete
 C:\Users\KM\source\repos\Lab2\CustomCollections\obj\Debug\CustomCollections.dll
 C:\Users\KM\source\repos\Lab2\CustomCollections\obj\Debug\CustomCollections.pdb
+x:\Desktop\lab2_sl\CustomCollections\bin\Debug\CustomCollections.dll
+x:\Desktop\lab2_sl\CustomCollections\bin\Debug\CustomCollections.pdb
+x:\Desktop\lab2_sl\CustomCollections\bin\Debug\CustomDatastructures.Core.dll
+x:\Desktop\lab2_sl\CustomCollections\bin\Debug\CustomDatastructures.Tests.dll
+x:\Desktop\lab2_sl\CustomCollections\bin\Debug\nunit.framework.dll
+x:\Desktop\lab2_sl\CustomCollections\obj\Debug\CustomCollections.csprojAssemblyReference.cache
+x:\Desktop\lab2_sl\CustomCollections\obj\Debug\CustomCollections.csproj.CoreCompileInputs.cache
+x:\Desktop\lab2_sl\CustomCollections\obj\Debug\CustomCollections.csproj.CopyComplete
+x:\Desktop\lab2_sl\CustomCollections\obj\Debug\CustomCollections.dll
+x:\Desktop\lab2_sl\CustomCollections\obj\Debug\CustomCollections.pdb
