@@ -28,3 +28,12 @@ C:\Users\ludde\Desktop\skola\lab2_sl\CustomCollections\bin\Debug\CustomDatastruc
 C:\Users\ludde\Desktop\skola\lab2_sl\CustomCollections\bin\Debug\CustomDatastructures.Tests.dll
 C:\Users\ludde\Desktop\skola\lab2_sl\CustomCollections\bin\Debug\nunit.framework.dll
 C:\Users\ludde\Desktop\skola\lab2_sl\CustomCollections\obj\Debug\CustomCollections.csproj.CopyComplete
+C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollections\bin\Debug\CustomCollections.dll
+C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollections\bin\Debug\CustomCollections.pdb
+C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollections\bin\Debug\CustomDatastructures.Core.dll
+C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollections\bin\Debug\CustomDatastructures.Tests.dll
+C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollections\bin\Debug\nunit.framework.dll
+C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollections\obj\Debug\CustomCollections.csprojResolveAssemblyReference.cache
+C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollections\obj\Debug\CustomCollections.csproj.CoreCompileInputs.cache
+C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollections\obj\Debug\CustomCollections.dll
+C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollections\obj\Debug\CustomCollections.pdb
