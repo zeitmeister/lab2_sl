@@ -40,9 +40,15 @@ namespace CustomCollections
 
         public void Remove(T item)
         {
-            internalList.Remove(item);
-            var arg = new ListChangedEventArgs<T>(Operation.Remove, item, internalList.Count);
-            OnChanged(arg);
+            var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
+            OnBeforeChange(rejArg);
+            if(!rejArg.IsOperationRejected)
+            {
+                internalList.Remove(item);
+                var arg = new ListChangedEventArgs<T>(Operation.Remove, item, internalList.Count);
+                OnChanged(arg);
+            }
+            
         }
 
         public bool Contains(T item)
