@@ -117,6 +117,10 @@ namespace CustomCollections
 
         public bool TryRemove(T item)
         {
+            if (!internalList.Contains(item))
+            {
+                return false;
+            }
             var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
             OnBeforeChange(rejArg);
             if (!rejArg.IsOperationRejected)
