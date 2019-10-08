@@ -19,13 +19,17 @@ namespace CustomCollections
 
         public event EventHandler<RejectableEventArgs<T>> BeforeChange;
 
+       
+
         //public delegate void EventHandler(object sender, ListChangedEventArgs<T> eventArgs);
         public void Add(T item)
         {
-
+            var rejArg = new RejectableCustomEventArgs<T>(Operation.Add, item, internalList.Count);
+            OnBeforeChange(rejArg);
             internalList.Add(item);
             var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);          
             OnChanged(arg);
+            
             
         }
 
@@ -41,7 +45,7 @@ namespace CustomCollections
             return internalList.Contains(item);
         }
 
-        protected virtual void OnBeforeChange(RejectableEventArgs<T> eventArgs)
+        protected virtual void OnBeforeChange(RejectableCustomEventArgs<T> eventArgs)
         {
             var handler = BeforeChange;
             if (handler != null)
@@ -107,5 +111,7 @@ namespace CustomCollections
             Value = eventArgs.Value;
             Count = eventArgs.Count;
         }
+
+        
     }
 }

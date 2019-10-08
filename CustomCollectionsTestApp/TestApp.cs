@@ -24,9 +24,9 @@ namespace CustomCollectionsTestApp
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            
-
             Subscriber subscriber = new Subscriber("sub1", list);
+            TestSubscriber testSubscriber = new TestSubscriber("sub2", list);
+            
             list.Add(textBox1.Text);
 
             listBox1.Items.Add(textBox1.Text);
