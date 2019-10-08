@@ -13,6 +13,7 @@ namespace CustomCollections
         // Declare an private variable, internalList, to work as 
         // the internal data storage for the list
         private List<T> internalList = new List<T>();
+        //Testar
         
         public event EventHandler<ListChangedEventArgs<T>> Changed;
 
