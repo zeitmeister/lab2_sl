@@ -71,3 +71,12 @@ C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollectionsTestApp\obj\Debug\Cust
 C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.csproj.CoreCompileInputs.cache
 C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.exe
 C:\Users\Bodd\Desktop\skola\OOP2\lab2_sl\CustomCollectionsTestApp\obj\Debug\CustomCollectionsTestApp.pdb
+C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\bin\Debug\CustomCollectionsTests.dll
+C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\bin\Debug\CustomDatastructures.Tests.dll
+C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\bin\Debug\nunit.framework.dll
+C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\bin\Debug\CustomCollectionsTests.pdb
+C:\Users\KM\source\repos\Lab2\CustomCollectionsTestApp\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml

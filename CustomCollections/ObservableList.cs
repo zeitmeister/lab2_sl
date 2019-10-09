@@ -31,15 +31,7 @@ namespace CustomCollections
         
         public void Add(T item)
         {
-                var rejArg = new RejectableCustomEventArgs<T>(Operation.Add, item, internalList.Count);
-                OnBeforeChange(rejArg);
-                if (!rejArg.IsOperationRejected)
-                {
-                    internalList.Add(item);
-                    var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);
-                    OnChanged(arg);
-                }
-            else
+            if (!PrepareListChange(item, Operation.Add))
             {
                 throw new OperationRejectedException("You can't add this item");
             }
@@ -47,19 +39,11 @@ namespace CustomCollections
 
         public void Remove(T item)
         {
-            if (!internalList.Contains(item))
+            if (!Contains(item))
             {
                 throw new InvalidOperationException("You have to select an item to be able to remove something form the list");
             }
-            var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
-                OnBeforeChange(rejArg);
-                if (!rejArg.IsOperationRejected)
-                {
-                    internalList.Remove(item);
-                    var arg = new ListChangedEventArgs<T>(Operation.Remove, item, internalList.Count);
-                    OnChanged(arg);
-                }
-            else
+            if (!PrepareListChange(item, Operation.Remove))
             {
                 throw new OperationRejectedException();
             }
@@ -89,6 +73,51 @@ namespace CustomCollections
             
         }
 
+
+        public bool TryRemove(T item)
+        {
+            if (!internalList.Contains(item) || (!PrepareListChange(item, Operation.Remove)))
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+        }
+
+        public bool TryAdd(T item)
+        {
+            if (PrepareListChange(item, Operation.Add))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
+        public bool PrepareListChange(T item, Operation operation)
+        {
+            var rejArg = new RejectableCustomEventArgs<T>(operation, item, internalList.Count);
+            OnBeforeChange(rejArg);
+            if (!rejArg.IsOperationRejected)
+            {
+                if (operation.ToString() == "Add")
+                {
+                    internalList.Add(item);
+                } else
+                {
+                    internalList.Remove(item);
+                }
+                var arg = new ListChangedEventArgs<T>(operation, item, internalList.Count);
+                OnChanged(arg);
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             return internalList.GetEnumerator();
@@ -99,36 +128,5 @@ namespace CustomCollections
             return ((IEnumerable)internalList).GetEnumerator();
         }
 
-        public bool TryRemove(T item)
-        {
-            if (!internalList.Contains(item))
-            {
-                return false;
-            }
-            var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
-            OnBeforeChange(rejArg);
-            if (!rejArg.IsOperationRejected)
-            {
-                internalList.Remove(item);
-                var arg = new ListChangedEventArgs<T>(Operation.Remove, item, internalList.Count);
-                OnChanged(arg);
-                return true;
-            }
-            else return false;
-        }
-
-        public bool TryAdd(T item)
-        {
-            var rejArg = new RejectableCustomEventArgs<T>(Operation.Add, item, internalList.Count);
-            OnBeforeChange(rejArg);
-            if (!rejArg.IsOperationRejected)
-            {
-                internalList.Add(item);
-                var arg = new ListChangedEventArgs<T>(Operation.Add, item, internalList.Count);
-                OnChanged(arg);
-                return true;
-            }
-            else return false;
-        }
     }
 }
