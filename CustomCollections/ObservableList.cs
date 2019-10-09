@@ -61,7 +61,7 @@ namespace CustomCollections
         {
             if (!internalList.Contains(item))
             {
-                throw new Exception("You have to select an item to be able to remove something form the list");
+                throw new InvalidOperationException("You have to select an item to be able to remove something form the list");
             }
             var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
                 OnBeforeChange(rejArg);

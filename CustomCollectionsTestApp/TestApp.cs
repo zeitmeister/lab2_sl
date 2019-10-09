@@ -75,7 +75,7 @@ namespace CustomCollectionsTestApp
                     list.Remove(listBox1.SelectedItem);
                 }
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 MessageBox.Show(ex.Message);
             }

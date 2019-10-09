@@ -134,7 +134,6 @@
             this.listBox1.TabIndex = 3;
             this.listBox1.Tag = "";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
-            this.listBox1.Enter += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
