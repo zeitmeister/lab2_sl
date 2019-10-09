@@ -29,7 +29,12 @@ namespace CustomCollections
 
         public event EventHandler<RejectableEventArgs<T>> BeforeChange;
 
-       
+        public bool IsEmpty
+        {
+            get { return internalList.Count == 0; }
+        }
+        
+        
 
         //public delegate void EventHandler(object sender, ListChangedEventArgs<T> eventArgs);
         public void Add(T item)
@@ -56,7 +61,7 @@ namespace CustomCollections
         {
             if (!internalList.Contains(item))
             {
-                throw new InvalidOperationException();
+                throw new Exception("You have to select an item to be able to remove something form the list");
             }
             var rejArg = new RejectableCustomEventArgs<T>(Operation.Remove, item, internalList.Count);
                 OnBeforeChange(rejArg);

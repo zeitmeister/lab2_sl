@@ -29,10 +29,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,14 +47,13 @@
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
-            this.button1.Enter += new System.EventHandler(this.Button1_Click);
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(242, 301);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(127, 34);
@@ -98,6 +97,18 @@
             this.panel2.Size = new System.Drawing.Size(594, 115);
             this.panel2.TabIndex = 7;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(92, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(414, 36);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Add something to the list, remove something from the list\r\n or check if your inpu" +
+    "t exists in the list";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -111,17 +122,19 @@
             // 
             // listBox1
             // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.BackColor = System.Drawing.Color.White;
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.listBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(168, 136);
+            this.listBox1.Location = new System.Drawing.Point(168, 140);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(401, 140);
+            this.listBox1.Size = new System.Drawing.Size(401, 122);
             this.listBox1.TabIndex = 3;
+            this.listBox1.Tag = "";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
+            this.listBox1.Enter += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
@@ -134,18 +147,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "The List";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(92, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(414, 36);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Add something to the list, remove something from the list\r\n or check if your inpu" +
-    "t exists in the list";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // TestApp
             // 
@@ -160,7 +161,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TestApp";
             this.Text = "Test App";
             this.Load += new System.EventHandler(this.TestApp_Load);

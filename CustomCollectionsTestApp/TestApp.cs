@@ -16,43 +16,35 @@ namespace CustomCollectionsTestApp
     /// </summary>
     public partial class TestApp : Form
     {
-        private static ObservableList<string> list = new ObservableList<string>();
+        private static ObservableList<object> list = new ObservableList<object>();
 
-        Subscriber subscriber = new Subscriber("sub1", list);
+        /*Subscriber subscriber = new Subscriber("sub1", list);
         TestSubscriber testSubscriber = new TestSubscriber("sub2", list);
-        TestSubscriber2 testSubscriber2 = new TestSubscriber2("sub3", list);
+        TestSubscriber2 testSubscriber2 = new TestSubscriber2("sub3", list);*/
 
         public TestApp()
         {
             InitializeComponent();
+            list.Changed += List_Changed;
+        }
+
+        private void List_Changed(object sender, CustomDatastructures.Core.ListChangedEventArgs<object> e)
+        {
+            if (e.Operation.ToString() == "Add")
+            {
+                listBox1.Items.Add(e.Value);
+                MessageBox.Show(e.Value + " was added to the list. The list now contains " + e.Count + " items");
+            }
+            if (e.Operation.ToString() == "Remove")
+            {
+                listBox1.Items.Remove(e.Value);
+                MessageBox.Show(e.Value + " was removed from the list. The list now contains " + e.Count + " items");
+            }
         }
 
         public void Button1_Click(object sender, EventArgs e)
-        {
-            /*Subscriber subscriber = new Subscriber("sub1", list);
-            TestSubscriber testSubscriber = new TestSubscriber("sub2", list);
-            TestSubscriber2 testSubscriber2 = new TestSubscriber2("sub3", list);*/
-            
-            
-                list.Add(textBox1.Text);
-            
-            
-
-            if (!testSubscriber2.Rejected)
-            listBox1.Items.Add(textBox1.Text);
-
-            if(subscriber.Operation == "Add")
-            {
-                System.Windows.Forms.MessageBox.Show(textBox1.Text + " was added to the list. The list now contains " + subscriber.Count + " items.");
-            }
-            
-        }
-
-
-
-        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+        {   
+            list.Add(textBox1.Text);
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -72,31 +64,45 @@ namespace CustomCollectionsTestApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*Subscriber subscriber = new Subscriber("sub1", list);
-            TestSubscriber testSubscriber = new TestSubscriber("sub2", list);
-            TestSubscriber2 testSubscriber2 = new TestSubscriber2("sub3", list);*/
-
-            var objToBeRemoved = listBox1.SelectedItem;
-            listBox1.Items.Remove(objToBeRemoved);
-            list.Remove(objToBeRemoved.ToString());
-            System.Windows.Forms.MessageBox.Show(objToBeRemoved.ToString() + " was removed to the list. The list now contains " + subscriber.Count + " items.");
+            try
+            {
+                if (list.IsEmpty)
+                {
+                    MessageBox.Show("You can't remove from an empty list");
+                }
+                else
+                {
+                    list.Remove(listBox1.SelectedItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            if (list.IsEmpty)
+            {
+                button3.Enabled = false;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            /*Subscriber subscriber = new Subscriber("sub1", list);
-            TestSubscriber testSubscriber = new TestSubscriber("sub2", list);
-            TestSubscriber2 testSubscriber2 = new TestSubscriber2("sub3", list);*/
-
             if (list.Contains(textBox1.Text))
             {
-                System.Windows.Forms.MessageBox.Show("'" + textBox1.Text + "'" + " is in the list");
+                MessageBox.Show("'" + textBox1.Text + "'" + " is in the list");
+            }
+            else if (list.IsEmpty)
+            {
+                MessageBox.Show("There is no items in the list");
+            }
+            else if(textBox1.Text == null || textBox1.Text == "")
+            {
+                MessageBox.Show("Please enter an item to check");
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("There is no " + "'" + textBox1.Text + "'" + " in the list");
+                MessageBox.Show("There is no " + "'" + textBox1.Text + "'" + " in the list");
             }
-
         }
 
         private void label1_Click(object sender, EventArgs e)
