@@ -17,16 +17,11 @@ namespace CustomCollections
     namespace CustomCollections
     {
     }
-    // Make this class generic by adding a type-parameter to the class
+
     public class ObservableList<T> : IEnumerable<T>, IObservableList<T>
     {
-        // Declare an private variable, internalList, to work as 
-        // the internal data storage for the list
         private List<T> internalList = new List<T>();
-        //Testar
-        
         public event EventHandler<ListChangedEventArgs<T>> Changed;
-
         public event EventHandler<RejectableEventArgs<T>> BeforeChange;
 
         public bool IsEmpty
@@ -34,12 +29,8 @@ namespace CustomCollections
             get { return internalList.Count == 0; }
         }
         
-        
-
-        //public delegate void EventHandler(object sender, ListChangedEventArgs<T> eventArgs);
         public void Add(T item)
         {
-            
                 var rejArg = new RejectableCustomEventArgs<T>(Operation.Add, item, internalList.Count);
                 OnBeforeChange(rejArg);
                 if (!rejArg.IsOperationRejected)
@@ -50,11 +41,8 @@ namespace CustomCollections
                 }
             else
             {
-                throw new OperationRejectedException();
+                throw new OperationRejectedException("You can't add this item");
             }
-
-
-
         }
 
         public void Remove(T item)
@@ -75,8 +63,6 @@ namespace CustomCollections
             {
                 throw new OperationRejectedException();
             }
-            
-           
         }
 
         public bool Contains(T item)
@@ -102,13 +88,6 @@ namespace CustomCollections
             }
             
         }
-
-
-
-        // The GetEnumerator methods is required by the IEnumerable and IEnumerable<T>
-        // interfaces and you could use the following implementations for these methods.
-        // internalList is the internal data storage for the ObservableList,
-        // you should replace it with the name of your list instead.
 
         public IEnumerator<T> GetEnumerator()
         {

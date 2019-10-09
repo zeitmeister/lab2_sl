@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomCollections;
+using CustomDatastructures.Core;
 
 namespace CustomCollectionsTestApp
 {
@@ -21,14 +22,23 @@ namespace CustomCollectionsTestApp
         /*Subscriber subscriber = new Subscriber("sub1", list);
         TestSubscriber testSubscriber = new TestSubscriber("sub2", list);
         TestSubscriber2 testSubscriber2 = new TestSubscriber2("sub3", list);*/
-
+       
         public TestApp()
         {
             InitializeComponent();
             list.Changed += List_Changed;
+            list.BeforeChange += List_BeforeChange;
         }
 
-        private void List_Changed(object sender, CustomDatastructures.Core.ListChangedEventArgs<object> e)
+        private void List_BeforeChange(object sender, RejectableEventArgs<object> e)
+        {
+            if (e.Value.ToString() == "Görkem")
+            {
+                e.RejectOperation();
+            }  
+        }
+        
+        private void List_Changed(object sender, ListChangedEventArgs<object> e)
         {
             if (e.Operation.ToString() == "Add")
             {
@@ -43,8 +53,15 @@ namespace CustomCollectionsTestApp
         }
 
         public void Button1_Click(object sender, EventArgs e)
-        {   
-            list.Add(textBox1.Text);
+        {
+            try
+            {
+                list.Add(textBox1.Text);
+            }
+            catch (OperationRejectedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }    
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)

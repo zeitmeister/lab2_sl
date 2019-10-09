@@ -2,9 +2,8 @@
 {
     using System;
 
-    namespace CustomCollections
-    {
-        class OperationRejectedException : InvalidOperationException
+
+        public class OperationRejectedException : InvalidOperationException
         {
             public OperationRejectedException()
             {
@@ -19,5 +18,5 @@
 
             }
         }
-    }
+    
 }
